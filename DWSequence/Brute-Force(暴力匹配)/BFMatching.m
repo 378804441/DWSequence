@@ -15,11 +15,15 @@
 /// @param text         文本串
 /// @param pattern  匹配模式串
 /// @return        模式串索引
-- (NSInteger)matchingOfText:(NSString *)text pattern:(NSString *)pattern{
-    
+- (NSInteger)matchingOfText:(NSString *)text pattern:(NSString *)pattern
+{
     NSInteger pi = pattern.length;
     NSInteger ti = text.length;
    
+    if (pi == 0 || ti == 0) {
+        return -1;
+    }
+    
     for (int i=0; i<ti-pi; i++) {
         int j;
         for (j=0; j<pi; j++) {
